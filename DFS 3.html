@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+ <div class="word">
+  <p> Hello </p> 
+ </div> 
+ <div class="circle">
+ </div>
+</head>
+
+.word {
+  font-size: 50px;
+  font-family: "Verdana",Sans-serif;
+  position: absolute;
+  margin-left: 10vw;
+  margin-top: 55vw;
+}
+.circle {
+      background: red;
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: red;
+      margin-left: 5vw;
+      margin-top: 0vw;
+    }
+
+var circle = $(".circle");
+console.log (circle[0].offsetHeight);
+
+$( document ) .on( "mousemove", function( event ) {
+  var screenWidth = $( document ).width();
+  var cursorX = event.pageX;
+  var cursorY = event.pageY;
+  var opacity = (screenWidth - cursorX) / screenWidth;
+  $(".circle").css({
+    "left": cursorX,
+    "top": cursorY,
+  });
+  });
+
+var word = $(".word");
+console.log (word[0].offsetHeight);
+
+$( document ) .on( "mousemove", function( event ) {
+  var screenWidth = $( document ).width();
+  var cursorX = event.pageX;
+  var cursorY = event.pageY;
+  var opacity = (screenWidth - cursorX) / screenWidth;
+  $(".word").css({
+    "right": cursorX,
+    "bottom": cursorY,
+  });  
+  });
